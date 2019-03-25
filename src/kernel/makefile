@@ -7,3 +7,4 @@ core_scheulder.o = -O2
 core_systick.o = -O2
 core_idle.o = -O2
 core_listeners.o = -O2
+core_event_handlers.o = -O2

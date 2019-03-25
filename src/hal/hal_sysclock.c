@@ -1,18 +1,41 @@
-#include "kernel/kernel.h"
+#include "hal/hal.h"
 #include <stm32l1xx_rcc.h>
-
 
 // Глобальные переменные модуля
 volatile uint64_t sys_ticks;    // Счетчик системных тиков 
 
-//********************************************************************************
-kcodes core_set_systick(void);
-uint64_t core_get_ms(void);
-void SysTick_Handler (void);
+
+// Установка системных часов, делителей шин переферии
+hal_retcode hal_start_sysclock(void)
+{
+    RCC_DeInit();
+
+    // Включаем встроеный высокочастотный генератор
+    RCC_HSICmd(ENABLE);
+
+    // Дожидаемся готовности
+    while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET);
+
+    // SYSCLK = HSI
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI );
+
+    // AHB = HSI
+    RCC_HCLKConfig(RCC_SYSCLK_Div1);
+
+    // APB1 = HSI
+    RCC_PCLK1Config(RCC_HCLK_Div1);
+
+    // APB2 = HSI
+    RCC_PCLK2Config(RCC_HCLK_Div1);
+
+    SystemCoreClockUpdate();
+
+    return hal_ok;
+}
 
 
 // Настройка системного таймера
-kcodes core_set_systick(void)
+hal_retcode hal_start_systick(void)
 {
     uint32_t clk_freq;
     
@@ -25,11 +48,11 @@ kcodes core_set_systick(void)
     uint32_t ticks =  clk_freq/ SYSTICK_FREQ;
     SysTick_Config (ticks);
 
-    return k_ok;
+    return hal_ok;
 }
 
 
-uint64_t core_get_ms(void)
+uint64_t hal_get_systick(void)
 {
     return sys_ticks;
 }

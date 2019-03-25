@@ -44,17 +44,14 @@
 /********************************************************************************/
 
 #include "kernel/kernel.h"
+#include "kernel/core_event_manager.h"
 #include "hal/hal.h"
+#include "hal/hal_lse.h"
+#include "hal/hal_sysclock.h"
+#include "hal/hal_idle.h"
 
 /********* Декларация внешних функции *********/
-kcodes core_set_sysclock(void); 
-kcodes core_init(void);
-kcodes core_modules_registration(void);
-kcodes core_post_event(uint8_t event);
 kcodes core_scheulder_loop(void);
-kcodes core_set_systick(void);
-kcodes core_idle_init(void);
-kcodes core_set_lse(void);
 
 
 int main(void)
@@ -65,41 +62,29 @@ int main(void)
     // Базовая инициализация аппаратной части платформы
     // в которую входит инициализация системнего таймера 
     // и переход на основную тактовую частоту платформы
-    // core_set_sysclock() должна вызываться для перехода
+    // hal_set_sysclock() должна вызываться для перехода
     // на рабочию частоту МК после пробуждения 
-    result = core_set_sysclock();  
+    result = hal_start_sysclock();  
     
     // Запуск часового кварца
-    result = core_set_lse();
+    result = hal_start_lse();
 
     // Запуск системного таймера и установка обработчика прерывания
-    result = core_set_systick();
+    result = hal_start_systick();
 
     // Запуск таймера вывода МК из глубокого сна 
-    result = core_idle_init();
+    result = hal_idle_init();
 
     // Инициализация платформо-зависимого когда
     // Код может зависить от разводки печатной платы
     result = hal_init();
 
     // Инициализация ядра ОС. Подготовка очередей
-    result = core_init();
-
-    // Вызов функции регистрации модулей подключенных к системе
-    // Модули самостаятельно подписываются на события в системе
-    // При регистрации модуль ничего не настраивает
-    // Список подключаемых модулей хранится в отдельном файле
-    // Программист добавляет их в ручную. Модуль может не обслуживать
-    // никаких событий, а только экспортировать необходимый функционал.
-
-    // TODO Модули должны иметь стандартизированные точки входа для регистрации,
-    // юнит тестирования алгоритмов, аппаратных тестов.   
-    // Добавить точку deinit для отключения аппаратуры.
-    result = core_modules_registration();
+    result = core_event_manager_init();
 
     // Следующим шагом сообщаем модулям о завершении загрузки системы 
     // и начале обработки очереди событий. 
-    result = core_post_event(0); //booted
+    result = core_post_event(event_booted); //booted
 
     // Переходим к основному циклу планировщика
     // Выход из цикла планировщика не предусмотрен

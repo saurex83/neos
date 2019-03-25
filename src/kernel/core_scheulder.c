@@ -19,10 +19,56 @@
 /* mail:        pvp@dcconsult.ru                                                */
 /********************************************************************************/
 #include "kernel/kernel.h"
+#include "kernel/core_event_manager.h"
+#include "kernel/core_task_manager.h"
+#include "kernel/core_event_handlers.h"
+#include "hal/hal_idle.h"
 
-kcodes core_idle(void);
+//********************************************************************************
 
 kcodes core_scheulder_loop(void)
 {
-    return 0;
+    k_event event;
+    kcodes result;
+    uint16_t task_num;
+    core_task *tasks = 0;   // Предупр. компилятора на необьявленную переменную
+
+    while(true)
+    {
+        while (true)
+        {
+            // Перебираем все события и ставим в очередь задач
+            while (true)
+            {
+                // Получаем событие
+                result = core_pop_event(&event);
+                
+                // Событий нет, переходим к обработке очереди задач
+                if (result == k_noevents)
+                    break;
+
+                // Извлекаем список обработчиков события
+                core_event_handlers(event, tasks, &task_num);
+
+                // Размещаем обработчики в очереди задач
+                for (uint16_t i = 0 ; i < task_num ; i ++)
+                    core_post_task(&tasks[i]);
+            }
+
+            // Извлекаем первую задачу из списка
+            result = core_pop_task(tasks);
+
+            // Список задач пуст, переходим к циклу сна
+            if (result == k_task_list_empty)
+                break;
+
+            // Выполняем задачу. У задачи есть коды возврата,
+            // но я их не обрабатываю пока что.
+            tasks->handler();
+        }
+
+        //TODO событие о том что мы проснулись
+        // Думаю нужны разные уведомления для разных режимов сна
+        hal_idle();
+    }
 }

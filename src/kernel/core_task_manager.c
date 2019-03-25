@@ -21,11 +21,43 @@
 
 #include "kernel/kernel.h"
 
-//********************************************************************************
-kcodes core_post_task(void);
+// Глобальные переменные модуля
 
+static bool sorted_flag = false; // Индикатор не сортированной очереди
 
-kcodes core_post_task(void)
+static struct   // Очередь событий
 {
-    return 0;
+   core_task task_list[TASK_LIST_LENGTH];
+   uint16_t size; // Количество задач в очереди
+} tasks;
+
+kcodes core_post_task(core_task *task)
+{
+    if (tasks.size >= TASK_LIST_LENGTH)
+        return 0; //TODO Kernel panic
+
+    tasks.task_list[tasks.size] = *task;
+    tasks.size ++;
+    sorted_flag = false;
+    return k_ok;
+}
+
+// Задачи с высоким приоритетом должны оказаться в низу 
+// списка, так как их можно легко удалять.
+static inline void sort_task(void)
+{
+    sorted_flag = true;
+}
+
+kcodes core_pop_task(core_task *task)
+{
+    if (tasks.size == 0)
+        return k_task_list_empty;
+
+    if (!sorted_flag)
+        sort_task();
+
+    *task = tasks.task_list[tasks.size - 1];
+    tasks.size --;
+    return k_ok;
 }

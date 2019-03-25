@@ -10,6 +10,9 @@
 /* знать о возникновении события и отреагировать на него.                       */
 /* Возможно поставить приоритетную задачу самостоятельно, но создать событие    */
 /* с низким приоритетом для целей подсчета статистики или еще для чего          */
+/* core_event_manager_init - инициализация модуля                               */
+/* core_post_event - размещение события                                         */
+/* core_pop_event - извлечение события                                          */
 /*                                                                              */
 /* Проект:      Neocore                                                         */
 /* Автор:       Макшанов Олег Васильевич                                        */
@@ -21,36 +24,28 @@
 
 
 // TODO Подумать о блокировке прерываний при постановке событий в очередь
-#include "kernel/kernel.h"
+#include "kernel/core_event_manager.h"
 
 // Глобальные переменные модуля
 static struct   // Очередь событий
 {
    k_event query[EVENT_QUERY_LENGTH];
-   uint16_t ptr;  
-   uint16_t items_num; // Количество обработчиков в очереди 
+   uint16_t size; // Количество событий в очереди 
 } event_query;
 
 //********************************************************************************
-kcodes core_event_manager_init(void);
-kcodes core_post_event(k_event event);
-kcodes core_pop_event(k_event *event);
-static inline bool is_free_space_query(void);
-static inline bool is_event_in_query(k_event event);
-static inline void push_event(k_event event);
 
 // Первоначальная инициализация модуля
 kcodes core_event_manager_init(void)
 {
-    event_query.ptr = 0 ;
-    event_query.items_num = 0;
+    event_query.size = 0 ;
     return k_ok;
 }
 
 // Наличие места в очереди
 static inline bool is_free_space_query(void)
 {
-    if (event_query.items_num < EVENT_QUERY_LENGTH )
+    if (event_query.size < EVENT_QUERY_LENGTH )
         return (true);
     return (false);
 }
@@ -58,7 +53,7 @@ static inline bool is_free_space_query(void)
 // Было ли ранее событие размещено в очереди
 static inline bool is_event_in_query(k_event event)
 {
-    for (uint16_t i=0; i < event_query.items_num; i++ )
+    for (uint16_t i=0; i < event_query.size; i++ )
         if (event_query.query[i] == event)
             return  (true);
     return (false);
@@ -67,9 +62,8 @@ static inline bool is_event_in_query(k_event event)
 // Размещение в очереди
 static inline void push_event(k_event event)
 {
-    event_query.ptr++;
-    event_query.query[event_query.ptr] = event;
-    event_query.items_num ++;
+    event_query.query[event_query.size] = event;
+    event_query.size ++;
 }
     
 // Установка события в очередь
@@ -92,11 +86,10 @@ kcodes core_post_event(k_event event)
 // в противном k_noevents
 kcodes core_pop_event(k_event *event)
 {
-    if (event_query.items_num == 0)
+    if (event_query.size == 0)
         return (k_noevents);
 
-    *event = event_query.query[event_query.ptr];
-    event_query.ptr--;
-    event_query.items_num--;
-    return (k_ok);    
+    *event = event_query.query[event_query.size - 1];
+    event_query.size--;
+    return k_ok;    
 }

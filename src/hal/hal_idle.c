@@ -20,18 +20,10 @@
 /********************************************************************************/
 
 
-#include "kernel/kernel.h"
+#include "hal/hal.h"
 #include <stm32l1xx_rcc.h>
 
-
-// Глобальные переменные модуля
-
-//********************************************************************************
-kcodes core_idle(void);
-kcodes core_idle_init(void);
-
-
-kcodes core_idle_init(void)
+hal_retcode hal_idle_init(void)
 {
 
     return 0;
@@ -40,7 +32,7 @@ kcodes core_idle_init(void)
 
 
 // Настройка системного таймера
-kcodes core_idle(void)
+hal_retcode hal_idle(void)
 {
     return 0;
 }

@@ -23,7 +23,7 @@
 
 
 //Базовая инициализация аппаратных модулей
-hal_ret hal_init(void)
+hal_retcode hal_init(void)
 {
     return 0;
 }

@@ -1,13 +1,11 @@
-
-#include "hal/hal_configuration.h"
 #include "stdint.h"
+#include "hal/hal_configuration.h"
 
+#pragma once
 
-typedef enum hal_ret
+typedef enum hal_retcode
 {
     hal_ok = 0x00
-} hal_ret;
+} hal_retcode;
 
-
-
-hal_ret hal_init(void);
+hal_retcode hal_init(void);

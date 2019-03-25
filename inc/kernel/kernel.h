@@ -3,6 +3,7 @@
 #include "stdint.h"
 #include "stdbool.h"
 
+#pragma once
 //********************************
 // Определения типов
 //********************************
@@ -10,7 +11,9 @@
 typedef enum kcodes // Коды возврата функций ядра
 {
     k_ok = 0x00,
-    k_noevents =0x01
+    k_noevents = 0x01,
+    k_nosubscribe = 0x02,
+    k_task_list_empty = 0x03
 } kcodes;
 
 
@@ -22,7 +25,8 @@ typedef kcodes (*task_hndl)(void); // Обработчик задачи
 // для ускорения работы
 typedef enum event_id
 {
-    event_booted
+    event_booted,
+    EVENT_LASTEVENT_IN_ENUM // ВСЕГДА ПОСЛЕДНЕЕ В ENUM! 
 } event_id;
 
 
@@ -33,24 +37,10 @@ typedef enum task_priority // Перечень приоритетов задач
     low_prioritty = 100,
 } task_priority;
 
-// Определяем задачу, параметры вызова
 
-//********************************
-// Системные часы
-//********************************
+typedef struct // Задача
+{
+    task_priority prior;
+    task_hndl handler;
+} core_task;
 
-kcodes      core_set_sysclock(void); 
-uint64_t    core_get_ms(void);
-
-//********************************
-// Менеджер событий
-//********************************
-
-kcodes core_pop_event(uint8_t *event);
-kcodes core_post_event(uint8_t event);
-
-//********************************
-// Регистратор подписчиков
-//********************************
-
-kcodes core_subscribe_events(task_hndl hndl, k_event ev, task_priority pri);
