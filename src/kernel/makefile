@@ -8,3 +8,5 @@ core_systick.o = -O2
 core_idle.o = -O2
 core_listeners.o = -O2
 core_event_handlers.o = -O2
+kernel_panic.o = -O2
+core_unit_tests.o = -O2
