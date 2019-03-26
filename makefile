@@ -69,7 +69,7 @@ DEFAULT_OPTIMIZATION += -Os
 CFLAGS += -mthumb -mcpu=cortex-m3 # архитектура и система комманд
 CFLAGS += -std=gnu99              # стандарт языка С
 CFLAGS += -Wall -pedantic         # Выводить все предупреждения
-#CFLAGS += -ggdb                   # Генерировать отладочную информацию для gdb
+CFLAGS += -ggdb                   # Генерировать отладочную информацию для gdb
 CFLAGS += -fno-builtin
 CFLAGS += -Wfatal-errors
 CFLAGS += $(DEFAULT_OPTIMIZATION) 
