@@ -12,7 +12,6 @@
  ********************************************************************************/
 
 #include "kernel/kernel.h"
-#include "kernel/kernel_panic.h"
 
 #define BOOTED_HANDLERS_SIZE  (sizeof(BOOTED_HANDLERS) / sizeof(core_task))
 

@@ -58,8 +58,6 @@
 /********************************************************************************/
 
 #include "kernel/kernel.h"
-#include "kernel/core_event_manager.h"
-#include "kernel/core_unit_tests.h"
 #include "hal/hal.h"
 #include "hal/hal_lse.h"
 #include "hal/hal_sysclock.h"
@@ -67,7 +65,6 @@
 
 /********* Декларация внешних функции *********/
 kcodes core_scheulder_loop(void);
-
 
 int main(void)
 {
@@ -96,12 +93,10 @@ int main(void)
     // Код может зависить от разводки печатной платы
     result = hal_init();
 
-
     // Проведение автоматического тестирования кода
     #ifdef UNIT_TEST
         result = execute_unit_tests();
     #endif
-
 
     // Инициализация ядра ОС. Подготовка очередей
     result = core_event_manager_init();

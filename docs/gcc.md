@@ -1,0 +1,1 @@
+# Установка gcc-arm-none-eabi

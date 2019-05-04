@@ -26,9 +26,6 @@ int TUNIT_task_manager_test_1(char *msg);
 int TUNIT_event_handlers_test_1(char *msg);
 int TUNIT_event_manager_test_1(char *msg);
 
-
-
-
 typedef struct 
 {
     proto_utest_fun test_func;

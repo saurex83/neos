@@ -1,7 +1,7 @@
 /********************************************************************************
  Общий заголовочный файл ядра системы.
 
-
+ TODO все остальные функции ядра из других заголовочных файлов перенести сюда
 
  Проект:      Neocore                                                         
  Автор:       Макшанов Олег Васильевич                                     
@@ -40,3 +40,21 @@ typedef struct // Задача
     task_hndl handler;
 } core_task;
 
+kcodes core_event_handlers(
+    k_event event, core_task *tasks, uint16_t *task_num);
+
+kcodes core_event_manager_init(void);
+kcodes core_post_event(k_event event);
+kcodes core_pop_event(k_event *event);
+
+kcodes core_pop_task(core_task *task);
+kcodes core_post_task(core_task *task);
+
+kcodes execute_unit_tests(void);
+
+void core_kernel_panic(char *file, int line, char *str);
+
+
+// пример
+// #include "kernel/kernel_panic.h"
+// core_kernel_panic( __FILE__, __LINE__, "Event is not registrated");

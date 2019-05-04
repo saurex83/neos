@@ -19,9 +19,6 @@
  ********************************************************************************/
 
 #include "kernel/kernel.h"
-#include "kernel/core_event_manager.h"
-#include "kernel/core_task_manager.h"
-#include "kernel/core_event_handlers.h"
 #include "hal/hal_idle.h"
 
 //********************************************************************************
