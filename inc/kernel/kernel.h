@@ -11,6 +11,7 @@
  mail:        pvp@dcconsult.ru 
  ********************************************************************************/
 
+#include "kernel/core_debug.h"
 #include "kernel/kernel_configuration.h"
 #include "kernel/kcodes.h"
 #include "kernel/kevents.h"

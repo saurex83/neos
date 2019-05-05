@@ -14,11 +14,8 @@
 #include "stdint.h"
 
 #pragma once
-
-
-
-#define UNIT_TEST  // Включение юнит тестов
-
+// Управление юнит тестированием
+#define UNIT_TEST 
 
 // Менеджер событий
 #define EVENT_QUERY_LENGTH  (16)    // Глубина буфера событий. +1 см. в менеджере 

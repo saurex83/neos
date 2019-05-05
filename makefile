@@ -85,6 +85,9 @@ LDSCRIPT   = stm32_flash.ld
 #-------------------------------------------------------------------------------
 LDFLAGS += -nostartfiles
 LDFLAGS += -mthumb 
+LDFLAGS += -specs=nosys.specs
+LDFLAGS += -specs=nano.specs
+#LDFLAGS += -nostdlib 
 LDFLAGS += -L$(LDSCR_PATH)
 LDFLAGS += -T$(LDSCR_PATH)/$(LDSCRIPT)
 LDFLAGS += $(addprefix -L, $(LIBPATH))
