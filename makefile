@@ -87,6 +87,7 @@ LDFLAGS += -nostartfiles
 LDFLAGS += -mthumb 
 LDFLAGS += -specs=nosys.specs
 LDFLAGS += -specs=nano.specs
+#LDFLAGS += -u_printf_float
 #LDFLAGS += -nostdlib 
 LDFLAGS += -L$(LDSCR_PATH)
 LDFLAGS += -T$(LDSCR_PATH)/$(LDSCRIPT)
