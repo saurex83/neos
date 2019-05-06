@@ -12,7 +12,7 @@
  mail:        pvp@dcconsult.ru 
  ******************************************************************************/
 #include <stdlib.h>
-#include "kernel/kernel.h"
+#include "kernel.h"
 
 // Глобальные переменные модуля
 
@@ -20,14 +20,14 @@ static bool sorted_flag = false; // Индикатор не сортирован
 
 static struct   // Очередь событий
 {
-   core_task task_list[TASK_LIST_LENGTH];
+   k_task task_list[TASK_LIST_LENGTH];
    uint16_t size; // Количество задач в очереди
 } tasks;
 
-kcodes core_post_task(core_task *task)
+kcodes kernel_task_push(k_task *task)
 {
     if (tasks.size >= TASK_LIST_LENGTH)
-        core_kernel_panic( __FILE__, __LINE__, "Tasks list overloaded");
+        kernel_panic( __FILE__, __LINE__, "Tasks list overloaded");
 
     tasks.task_list[tasks.size] = *task;
     tasks.size ++;
@@ -41,8 +41,8 @@ kcodes core_post_task(core_task *task)
 // Если x1 > x2 возвращаем положительное значение
 static int compare(const void * x1, const void * x2)
 {
-    int x1_val = (*(core_task*)x1).prior;
-    int x2_val = (*(core_task*)x2).prior;
+    int x1_val = (*(k_task*)x1).prior;
+    int x2_val = (*(k_task*)x2).prior;
 
     // Высокоприоритетные задачи должны оказаться внизу списка
     // Начало списка - индекс масива [0]
@@ -52,11 +52,11 @@ static int compare(const void * x1, const void * x2)
 
 static inline void sort_task(void)
 {
-    qsort(tasks.task_list, tasks.size, sizeof(core_task), compare);
+    qsort(tasks.task_list, tasks.size, sizeof(k_task), compare);
     sorted_flag = true;
 }
 
-kcodes core_pop_task(core_task *task)
+kcodes kernel_task_pop(k_task *task)
 {
     if (tasks.size == 0)
         return k_task_list_empty;

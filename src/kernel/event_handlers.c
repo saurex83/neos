@@ -1,7 +1,18 @@
 /*******************************************************************************
  Менеджер обработчиков событий.
+ Оработчики событий компилируются статически.
+ 
+ Все обработчики требуется добавлять вручную.
+ При добавлении нового события в kevent следует это событие добавить в 
+ массив EVENTS_HANDLERS_MAP
 
+ BOOTED_HANDLERS - список тасков, которые хотят обрабатывать это событие
 
+ EVENTS_HANDLERS_MAP массив указателей на списки тасков.
+
+ EVENTS_HANDLERS_MAP[event_booted] -> BOOTED_HANDLERS[]
+
+ 
 
  Проект:      Neocore                                                         
  Автор:       Макшанов Олег Васильевич                                     
@@ -11,24 +22,26 @@
  mail:        pvp@dcconsult.ru 
  ******************************************************************************/
 
-#include "kernel/kernel.h"
-
-#define BOOTED_HANDLERS_SIZE  (sizeof(BOOTED_HANDLERS) / sizeof(core_task))
+#include "kernel.h"
 
 typedef struct 
 {
-    core_task* task_list;
+    k_task* task_list;
     uint16_t list_size;
 } events_handl_map;
 
-
-// Список обработчиков события event_booted
-core_task BOOTED_HANDLERS[] = {
+/*******************************************************************************
+ СПИСОК ОБРАБОТЧИКОВ СОБЫТИЯ event_booted
+ ******************************************************************************/
+#define BOOTED_HANDLERS_SIZE  (sizeof(BOOTED_HANDLERS) / sizeof(k_task))
+k_task BOOTED_HANDLERS[] = {
     {.handler = 0, .prior = middle_priority}
 };
 
 
-// Здесь описываются новые списки обработчиков событий.
+/*******************************************************************************
+ СПИСОК УКАЗАТЕЛЕЙ НА СПИСКИ СОБРАБОТЧИКОВ СОБЫТИЙ
+ ******************************************************************************/
 events_handl_map EVENTS_HANDLERS_MAP[] = {
 
 // [событие] = {.task_list = указатель на список обработчиков,
@@ -43,13 +56,14 @@ events_handl_map EVENTS_HANDLERS_MAP[] = {
                                  .list_size = 0}
 };
 
-
-kcodes core_event_handlers(
-    k_event event, core_task *tasks, uint16_t *task_num)
+// Возвращает список обработчиков обслуживающие событие
+// *tasks указывает на начало списка. task_num количество
+kcodes kernal_get_event_handlers(
+    k_event event, k_task *tasks, uint16_t *task_num)
 {
     // Такого события нет
     if (event>=EVENT_LASTEVENT_IN_ENUM)
-        core_kernel_panic( __FILE__, __LINE__, "Event is not registrated");
+        kernel_panic( __FILE__, __LINE__, "Event is not registrated");
 
     *task_num = EVENTS_HANDLERS_MAP[event].list_size;
     tasks = EVENTS_HANDLERS_MAP[event].task_list;

@@ -18,18 +18,19 @@
  mail:        pvp@dcconsult.ru 
  ******************************************************************************/
 
-#include "kernel/kernel.h"
-#include "hal/hal_idle.h"
+#include "kernel.h"
 
 //******************************************************************************
 
-kcodes core_scheulder_loop(void)
+kcodes kernel_scheulder(void)
 {
     k_event event;
     kcodes result;
     uint16_t task_num;
-    core_task *tasks = 0;   // Предупр. компилятора на необьявленную переменную
+    k_task *tasks = 0;   // Предупр. компилятора на необьявленную переменную
 
+    DBG_PRINT(CORE_LVL,"%s","Scheulder started\n");
+    
     while(true)
     {
         while (true)
@@ -38,22 +39,22 @@ kcodes core_scheulder_loop(void)
             while (true)
             {
                 // Получаем событие
-                result = core_pop_event(&event);
+                result = kernel_event_pop(&event);
                 
                 // Событий нет, переходим к обработке очереди задач
                 if (result == k_noevents)
                     break;
 
                 // Извлекаем список обработчиков события
-                core_event_handlers(event, tasks, &task_num);
+                kernal_get_event_handlers(event, tasks, &task_num);
 
                 // Размещаем обработчики в очереди задач
                 for (uint16_t i = 0 ; i < task_num ; i ++)
-                    core_post_task(&tasks[i]);
+                    kernel_task_push(&tasks[i]);
             }
 
             // Извлекаем первую задачу из списка
-            result = core_pop_task(tasks);
+            result = kernel_task_pop(tasks);
 
             // Список задач пуст, переходим к циклу сна
             if (result == k_task_list_empty)
@@ -66,6 +67,6 @@ kcodes core_scheulder_loop(void)
 
         //TODO событие о том что мы проснулись
         // Думаю нужны разные уведомления для разных режимов сна
-        hal_idle();
+        kernel_idle();
     }
 }

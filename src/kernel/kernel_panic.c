@@ -16,7 +16,7 @@
 // *file указатель на имя файла в текстовом представлении
 // *line указатель на номер строки в текстовом представлении
 // *str указатель на текст ошибки
-void core_kernel_panic(char *file, int line, char *str)
+void kernel_panic(char *file, int line, char *str)
 {
     while (0);
 }

@@ -25,7 +25,7 @@
  ******************************************************************************/
 
 // TODO Подумать о блокировке прерываний при постановке событий в очередь
-#include "kernel/kernel.h"
+#include "kernel.h"
 
 // Глобальные переменные модуля
 static struct   // Очередь событий
@@ -36,8 +36,12 @@ static struct   // Очередь событий
 
 //******************************************************************************
 
+kcodes kernel_event_manager_init(void);
+kcodes kernel_event_push(k_event event);
+kcodes kernel_event_pop(k_event *event);
+
 // Первоначальная инициализация модуля
-kcodes core_event_manager_init(void)
+kcodes kernel_event_manager_init(void)
 {
     event_query.size = 0 ;
     return k_ok;
@@ -69,10 +73,10 @@ static inline void push_event(k_event event)
     
 // Установка события в очередь
 // Возвращает k_ok в случаи успешного завершения
-kcodes core_post_event(k_event event)
+kcodes kernel_event_push(k_event event)
 {
     if (!(is_free_space_query()))
-        core_kernel_panic( __FILE__, __LINE__, "Event query overloaded");
+        kernel_panic( __FILE__, __LINE__, "Event query overloaded");
 
     if (is_event_in_query(event))
         return k_ok;   // Добавлять не нужно, уже в очереди
@@ -85,7 +89,7 @@ kcodes core_post_event(k_event event)
 // Извлекает событие из очереди
 // в случаи успешного завершения возвращает k_ok
 // в противном k_noevents
-kcodes core_pop_event(k_event *event)
+kcodes kernel_event_pop(k_event *event)
 {
     if (event_query.size == 0)
         return (k_noevents);

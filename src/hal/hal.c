@@ -12,12 +12,10 @@
  ******************************************************************************/
 
 #include "hal/hal.h"
-#include "hal/hal_stdio.h"
 
 //Базовая инициализация аппаратных модулей
 hal_retcode hal_init(void)
 {
-	hal_stdio_init();
     return 0;
 }
 

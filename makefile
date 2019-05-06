@@ -11,6 +11,7 @@ DEFINES += STM32L151xB
 # Включение персональных настроек файлов 
 #-------------------------------------------------------------------------------
 MAKEFILE_INC += src/kernel/makefile
+MAKEFILE_INC += src/kernel/platform/makefile
 MAKEFILE_INC += stdperiph/src/makefile
 MAKEFILE_INC += cmsis/makefile
 MAKEFILE_INC += src/hal/makefile
@@ -40,6 +41,7 @@ STARTUP = startup/startup_stm32l1xx_md.s
 #-------------------------------------------------------------------------------
 SOURCEDIRS := src
 SOURCEDIRS += src/kernel
+SOURCEDIRS += src/kernel/platform
 SOURCEDIRS += src/hal
 SOURCEDIRS += $(STDPERIPH_SRC_PATH)
 SOURCEDIRS += $(CMSIS_PATH)
@@ -51,6 +53,7 @@ EXE_DIR = bin
 # Пути поиска хидеров
 #-------------------------------------------------------------------------------
 INCLUDES += inc
+INCLUDES += inc/kernel
 INCLUDES += $(SOURCEDIRS) 
 INCLUDES += $(CMSIS_PATH)
 INCLUDES += $(STDPERIPH_INC_PATH)

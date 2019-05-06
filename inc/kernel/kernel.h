@@ -11,50 +11,32 @@
  mail:        pvp@dcconsult.ru 
  ********************************************************************************/
 
-#include "kernel/core_debug.h"
-#include "kernel/kernel_configuration.h"
-#include "kernel/kcodes.h"
-#include "kernel/kevents.h"
-#include "stdint.h"
-#include "stdbool.h"
-
 #pragma once
-//********************************
-// Определения типов
-//********************************
 
-typedef kcodes (*task_hndl)(void); // Обработчик задачи
+#include <stdint.h>
+#include <stdbool.h>
+#include "kconf.h"
+#include "kdebug.h"
+#include "kcodes.h"
+#include "kevents.h"
+#include "ktasks.h"
 
+kcodes kernal_get_event_handlers(
+    k_event event, k_task *tasks, uint16_t *task_num);
 
-typedef enum task_priority // Перечень приоритетов задач
-{
-    hw_priority = 255,
-    high_priority = 200,
-    middle_priority = 50,
-    low_prioritty = 0,
-} task_priority;
+kcodes kernel_scheulder(void);
 
+kcodes kernel_event_manager_init(void);
+kcodes kernel_event_push(k_event event);
+kcodes kernel_event_pop(k_event *event);
 
-typedef struct // Задача
-{
-    task_priority prior;
-    task_hndl handler;
-} core_task;
-
-kcodes core_event_handlers(
-    k_event event, core_task *tasks, uint16_t *task_num);
-
-kcodes core_event_manager_init(void);
-kcodes core_post_event(k_event event);
-kcodes core_pop_event(k_event *event);
-
-kcodes core_pop_task(core_task *task);
-kcodes core_post_task(core_task *task);
+kcodes kernel_task_pop(k_task *task);
+kcodes kernel_task_push(k_task *task);
 
 kcodes execute_unit_tests(void);
 
-void core_kernel_panic(char *file, int line, char *str);
-
+void kernel_panic(char *file, int line, char *str);
+kcodes kernel_idle(void);
 
 // пример
 // #include "kernel/kernel_panic.h"
