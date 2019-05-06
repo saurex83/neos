@@ -46,7 +46,7 @@ kcodes kernel_scheulder(void)
                     break;
 
                 // Извлекаем список обработчиков события
-                kernal_get_event_handlers(event, tasks, &task_num);
+                kernel_get_event_handlers(event, tasks, &task_num);
 
                 // Размещаем обработчики в очереди задач
                 for (uint16_t i = 0 ; i < task_num ; i ++)

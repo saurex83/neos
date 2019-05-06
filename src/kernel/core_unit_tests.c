@@ -38,8 +38,6 @@ test_item UNIT_TEST_FUNC_LIST[] = {
 //  {.test_func = FNAME}
    {.test_func = stub_f },   // Заглушка нужно чтобы компилятор не ругался
    {.test_func = TUNIT_task_manager_test_1},
-   {.test_func = TUNIT_event_handlers_test_1},
-   {.test_func = TUNIT_event_manager_test_1}
 };
 
 
