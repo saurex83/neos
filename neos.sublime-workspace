@@ -4,14 +4,18 @@
 		"selected_items":
 		[
 			[
+<<<<<<< Updated upstream
 				"ta",
 				"task"
 			],
 			[
+=======
+>>>>>>> Stashed changes
 				"k",
 				"k_ok"
 			],
 			[
+<<<<<<< Updated upstream
 				"tas",
 				"tasks_count"
 			],
@@ -38,6 +42,10 @@
 			[
 				"ev",
 				"event"
+=======
+				"re",
+				"result"
+>>>>>>> Stashed changes
 			],
 			[
 				"LD",
@@ -120,10 +128,6 @@
 				"hal.h\t(main.c)"
 			],
 			[
-				"re",
-				"return"
-			],
-			[
 				"si",
 				"sizeof\t(core_task_manager.c)"
 			],
@@ -180,6 +184,13 @@
 				"prior\t(kernel.h)"
 			],
 			[
+<<<<<<< Updated upstream
+=======
+				"ta",
+				"task_hndl\t(kernel.h)"
+			],
+			[
+>>>>>>> Stashed changes
 				"core_eve",
 				"core_event_manager.h\t(core_event_manager.c)"
 			],
@@ -308,6 +319,7 @@
 	"buffers":
 	[
 		{
+<<<<<<< Updated upstream
 			"file": "src/neos/events.c",
 			"settings":
 			{
@@ -327,6 +339,9 @@
 		},
 		{
 			"file": "src/neos/tasks.c",
+=======
+			"file": "inc/kernel/kevents.h",
+>>>>>>> Stashed changes
 			"settings":
 			{
 				"buffer_size": 783,
@@ -335,6 +350,7 @@
 			}
 		},
 		{
+<<<<<<< Updated upstream
 			"file": "src/neos/kernel_panic.c",
 			"settings":
 			{
@@ -357,15 +373,28 @@
 			"settings":
 			{
 				"buffer_size": 1006,
+=======
+			"file": "src/kernel/platform/mcu_stm32l151.c",
+			"settings":
+			{
+				"buffer_size": 3584,
+>>>>>>> Stashed changes
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
+<<<<<<< Updated upstream
 			"file": "src/neos/scheulder.c",
 			"settings":
 			{
 				"buffer_size": 694,
+=======
+			"file": "docs/kernel.md",
+			"settings":
+			{
+				"buffer_size": 7507,
+>>>>>>> Stashed changes
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -374,7 +403,11 @@
 			"file": "src/neos/include/events.h",
 			"settings":
 			{
+<<<<<<< Updated upstream
 				"buffer_size": 603,
+=======
+				"buffer_size": 1408,
+>>>>>>> Stashed changes
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -515,6 +548,7 @@
 	},
 	"expanded_folders":
 	[
+<<<<<<< Updated upstream
 		"/home/saurex83/Projects/neos",
 		"/home/saurex83/Projects/neos/docs",
 		"/home/saurex83/Projects/neos/docs/xmindmap",
@@ -556,6 +590,51 @@
 		"/home/saurex83/Projects/neos/src/kernel/main.c",
 		"/home/saurex83/Projects/neos/docs/hal.md",
 		"/home/saurex83/Projects/neos/src/hal/hal.c",
+=======
+		"/home/saurex/Projects/neos",
+		"/home/saurex/Projects/neos/docs",
+		"/home/saurex/Projects/neos/inc",
+		"/home/saurex/Projects/neos/src",
+		"/home/saurex/Projects/neos/src/appsys",
+		"/home/saurex/Projects/neos/src/kernel",
+		"/home/saurex/Projects/neos/stdperiph"
+	],
+	"file_history":
+	[
+		"/home/saurex/Projects/neos/src/kernel/main.c",
+		"/home/saurex/Projects/neos/src/kernel/scheulder.c",
+		"/home/saurex/Projects/neos/src/kernel/task_manager.c",
+		"/home/saurex/Projects/neos/src/kernel/kernel_log.c",
+		"/home/saurex/Projects/neos/makefile",
+		"/home/saurex/Projects/neos/stdperiph/src/makefile",
+		"/home/saurex/Projects/neos/inc/kernel/kdebug.h",
+		"/home/saurex/Projects/neos/src/hal/hal.c",
+		"/home/saurex/Projects/neos/src/kernel/event_handlers.c",
+		"/home/saurex/Projects/neos/src/kernel/event_manager.c",
+		"/home/saurex/Projects/neos/inc/kernel/platform/kernel_hw.h",
+		"/home/saurex/Projects/neos/inc/hal/hal_configuration.h",
+		"/home/saurex/Projects/neos/src/kernel/platform/mcu_stm32l151.c",
+		"/home/saurex/Projects/neos/inc/kernel/ktasks.h",
+		"/home/saurex/Projects/neos/inc/kernel/kernel.h",
+		"/home/saurex/Projects/neos/src/kernel/makefile",
+		"/home/saurex/Projects/neos/src/kernel/kernel_panic.c",
+		"/home/saurex/Projects/neos/src/kernel/core_event_manager.c",
+		"/home/saurex/Projects/neos/src/kernel/core_scheulder.c",
+		"/home/saurex/Projects/neos/src/kernel/core_task_manager.c",
+		"/home/saurex/Projects/neos/inc/kernel/kprior.h",
+		"/home/saurex/Projects/neos/src/hal/hal_stdio.c",
+		"/home/saurex/Projects/neos/inc/hal/hal_sysclock.h",
+		"/home/saurex/Projects/neos/src/hal/hal_sysclock.c",
+		"/home/saurex/Projects/neos/docs/kernel.md",
+		"/home/saurex/Projects/neos/inc/kernel/kevents.h",
+		"/home/saurex/Projects/neos/inc/kernel/core_debug.h",
+		"/home/saurex/Projects/neos/src/kernel/platform/makefile",
+		"/home/saurex/Projects/neos/src/kernel/core_event_handlers.c",
+		"/home/saurex/Projects/neos/docs/hal.md",
+		"/home/saurex/Projects/neos/inc/kernel/kernel_configuration.h",
+		"/home/saurex/Projects/neos/src/hal/makefile",
+		"/home/saurex/Projects/neos/src/kernel/core_unit_tests.c",
+>>>>>>> Stashed changes
 		"/home/saurex83/Projects/neos/src/hal/makefile",
 		"/home/saurex83/Projects/neos/inc/kernel/kernel_configuration.h",
 		"/home/saurex83/Projects/neos/src/hal/hal_stdio.c",
@@ -646,6 +725,7 @@
 		"/home/saurex/Документы/Neos/inc/kernel/event_handlers_list.h",
 		"/home/saurex/Документы/Neos/inc/kernel/core_task_manager.h",
 		"/home/saurex/Документы/Neos/inc/kernel/core_listeners.h",
+<<<<<<< Updated upstream
 		"/home/saurex/Документы/Neos/inc/kernel/core_idle.h",
 		"/home/saurex/Документы/Neos/inc/hal/hal_configuration.h",
 		"/home/saurex/Документы/Neos/src/hal/makefile",
@@ -660,6 +740,9 @@
 		"/home/saurex/Документы/Neos/.gitignore",
 		"/home/saurex/Документы/Neos/cmsis/core_cm0.h",
 		"/home/saurex/Документы/Neos/stdperiph/inc/stm32l1xx_rcc.h"
+=======
+		"/home/saurex/Документы/Neos/inc/kernel/core_idle.h"
+>>>>>>> Stashed changes
 	],
 	"find":
 	{
@@ -677,8 +760,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+<<<<<<< Updated upstream
 			"_write",
 			"LISTENER_QUERY_LENGTH",
+=======
+			"-O2",
+>>>>>>> Stashed changes
 			"invalidLicense",
 			"license",
 			"lecen",
@@ -710,6 +797,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"-Os",
 			"none",
 			"core_set_sysclock",
 			"-O2",
@@ -726,11 +814,16 @@
 	"groups":
 	[
 		{
+<<<<<<< Updated upstream
 			"selected": 5,
+=======
+			"selected": 0,
+>>>>>>> Stashed changes
 			"sheets":
 			[
 				{
 					"buffer": 0,
+<<<<<<< Updated upstream
 					"file": "src/neos/events.c",
 					"semi_transient": false,
 					"settings":
@@ -760,6 +853,9 @@
 				{
 					"buffer": 1,
 					"file": "src/neos/include/tasks.h",
+=======
+					"file": "inc/kernel/kevents.h",
+>>>>>>> Stashed changes
 					"semi_transient": false,
 					"settings":
 					{
@@ -770,8 +866,13 @@
 						"selection":
 						[
 							[
+<<<<<<< Updated upstream
 								759,
 								759
+=======
+								898,
+								898
+>>>>>>> Stashed changes
 							]
 						],
 						"settings":
@@ -782,6 +883,7 @@
 						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
+<<<<<<< Updated upstream
 					"stack_index": 6,
 					"type": "text"
 				},
@@ -811,23 +913,46 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+=======
+					"stack_index": 2,
+>>>>>>> Stashed changes
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
 				{
+<<<<<<< Updated upstream
 					"buffer": 3,
 					"file": "src/neos/kernel_panic.c",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 820,
+=======
+					"buffer": 1,
+					"file": "src/kernel/platform/mcu_stm32l151.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3584,
+>>>>>>> Stashed changes
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< Updated upstream
 								751,
 								751
+=======
+								1754,
+								1754
+>>>>>>> Stashed changes
 							]
 						],
 						"settings":
@@ -835,6 +960,7 @@
 							"syntax": "Packages/C++/C.sublime-syntax"
 						},
 						"translation.x": 0.0,
+<<<<<<< Updated upstream
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -864,52 +990,88 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+=======
+						"translation.y": 765.0,
+>>>>>>> Stashed changes
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
+<<<<<<< Updated upstream
 					"buffer": 5,
 					"file": "src/neos/include/portable.h",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 1006,
+=======
+					"buffer": 2,
+					"file": "docs/kernel.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7507,
+>>>>>>> Stashed changes
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< Updated upstream
 								702,
 								702
+=======
+								2007,
+								2007
+>>>>>>> Stashed changes
 							]
 						],
 						"settings":
 						{
+<<<<<<< Updated upstream
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+=======
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 241.0,
+>>>>>>> Stashed changes
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
+<<<<<<< Updated upstream
 					"buffer": 6,
 					"file": "src/neos/scheulder.c",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 694,
+=======
+					"buffer": 3,
+					"file": "inc/kernel/kernel.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1408,
+>>>>>>> Stashed changes
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< Updated upstream
 								633,
 								633
 							]
@@ -940,6 +1102,10 @@
 							[
 								579,
 								579
+=======
+								888,
+								888
+>>>>>>> Stashed changes
 							]
 						],
 						"settings":
@@ -950,7 +1116,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+<<<<<<< Updated upstream
 					"stack_index": 7,
+=======
+					"stack_index": 3,
+>>>>>>> Stashed changes
 					"type": "text"
 				}
 			]
@@ -1003,7 +1173,11 @@
 	"project": "neos.sublime-project",
 	"replace":
 	{
+<<<<<<< Updated upstream
 		"height": 72.0
+=======
+		"height": 71.0
+>>>>>>> Stashed changes
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1033,7 +1207,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
