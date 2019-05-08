@@ -15,7 +15,7 @@ typedef enum
 	LP1, LP2, LP3
 } idleState;
 
-typedef void (sys_hnl*)(void*);
+typedef void (*sys_hnl)(void);
 
 void xSystemIdle(idleState state);
 void xSystemWDT_SetHandler(sys_hnl handler);	// Установить обр. WDT

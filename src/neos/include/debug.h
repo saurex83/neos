@@ -11,28 +11,28 @@
 
 #pragma once
 
-#include "kernel_fprintf.h"
+#include "kernel_printf.h"
 
-#define DPRNT(fmt, ...)									
-		kernel_fprintf(stderr, "%s:%d:%s(): " fmt, __FILE__,	\		
-        		__LINE__, __func__, __VA_ARGS__);				\
+#define DPRNT(fmt, ...)\
+		kernel_fprintf(stderr, "%s:%d:%s(): " fmt, __FILE__,\
+        		__LINE__, __func__, __VA_ARGS__);
 
 #define NOPRNT 	while (0);	
 
 #ifdef DBGLVL1 													
-#define	DBG_PRINT_LVL1 DPRNT							
+#define	DBG_PRINT_LVL1(fmt, ...) DPRNT(fmt, ...)							
 #else
-#define DBG_PRINT_LVL1 NOPRNT
+#define DBG_PRINT_LVL1(fmt, ...) NOPRNT
 #endif
 
 #ifdef DBGLVL2												
-#define	DBG_PRINT_LVL2 DPRNT							
+#define	DBG_PRINT_LVL2(fmt, ...) DPRNT(fmt, ...)							
 #else
-#define DBG_PRINT_LVL2 NOPRNT
+#define DBG_PRINT_LVL2(fmt, ...) NOPRNT
 #endif
 
 #ifdef DBGLVL3													
-#define	DBG_PRINT_LVL3 DPRNT							
+#define	DBG_PRINT_LVL3(fmt, ...) DPRNT(fmt, ...)							
 #else
 #define DBG_PRINT_LVL3 NOPRNT
 #endif

@@ -10,11 +10,11 @@ DEFINES += STM32L151xB
 
 # Включение персональных настроек файлов 
 #-------------------------------------------------------------------------------
-MAKEFILE_INC += src/kernel/makefile
-MAKEFILE_INC += src/kernel/platform/makefile
+MAKEFILE_INC += src/neos/makefile
+MAKEFILE_INC += src/neos/portable/stm32l151/makefile
 MAKEFILE_INC += stdperiph/src/makefile
 MAKEFILE_INC += cmsis/makefile
-MAKEFILE_INC += src/hal/makefile
+MAKEFILE_INC += 
 
 include $(MAKEFILE_INC)
 
@@ -40,8 +40,9 @@ STARTUP = startup/startup_stm32l1xx_md.s
 # Пути поиска исходных файлов
 #-------------------------------------------------------------------------------
 SOURCEDIRS := src
-SOURCEDIRS += src/kernel
-SOURCEDIRS += src/kernel/platform
+SOURCEDIRS += src/neos
+SOURCEDIRS += src/neos/include
+SOURCEDIRS += src/neos/portable/stm32l151
 SOURCEDIRS += src/hal
 SOURCEDIRS += $(STDPERIPH_SRC_PATH)
 SOURCEDIRS += $(CMSIS_PATH)
@@ -53,7 +54,7 @@ EXE_DIR = bin
 # Пути поиска хидеров
 #-------------------------------------------------------------------------------
 INCLUDES += inc
-INCLUDES += inc/kernel
+INCLUDES += src/neos/include
 INCLUDES += $(SOURCEDIRS) 
 INCLUDES += $(CMSIS_PATH)
 INCLUDES += $(STDPERIPH_INC_PATH)
@@ -75,6 +76,8 @@ CFLAGS += -Wall -pedantic         # Выводить все предупрежд
 CFLAGS += -ggdb                   # Генерировать отладочную информацию для gdb
 CFLAGS += -fno-builtin
 CFLAGS += -Wfatal-errors
+CFLAGS += -ffunction-sections	  # Выбрасываем неиспользуемые функции
+CFLAGS += -fdata-sections 		  # Выбрасываем неиспользуемые данные
 CFLAGS += $(DEFAULT_OPTIMIZATION) 
 CFLAGS += $(addprefix -I, $(INCLUDES))
 CFLAGS += $(addprefix -D, $(DEFINES))
@@ -91,7 +94,7 @@ LDFLAGS += -mthumb
 LDFLAGS += -specs=nosys.specs
 LDFLAGS += -specs=nano.specs
 #LDFLAGS += -u_printf_float
-#LDFLAGS += -nostdlib 
+LDFLAGS += -Wl,--gc-sections   # /Не линкуем неиспользуемый код и данные
 LDFLAGS += -L$(LDSCR_PATH)
 LDFLAGS += -T$(LDSCR_PATH)/$(LDSCRIPT)
 LDFLAGS += $(addprefix -L, $(LIBPATH))

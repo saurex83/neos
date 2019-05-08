@@ -10,7 +10,10 @@
  ******************************************************************************/
 #pragma once
 
+#include "neos.h"
+
 #define MIN_PRIORITY	0x00
+#define MID_PRIORITY	0x2A
 #define MAX_PRIORITY	0xFF
 
 typedef void (*taskF)(void);
@@ -22,3 +25,5 @@ typedef struct
     taskF taskF;
 } task_t;
 
+void xTaskWrite(task_t *task);
+int xTaskRead(task_t *task);

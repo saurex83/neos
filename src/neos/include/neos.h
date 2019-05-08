@@ -12,6 +12,7 @@
 #pragma once
 
 #include <stddef.h>
+#include <stdint.h>
 #include "neosConfig.h"
 #include "portable.h"
 

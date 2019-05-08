@@ -24,4 +24,3 @@ typedef enum event_id
     event_booted,
     EVENT_LASTEVENT_IN_ENUM // ВСЕГДА ПОСЛЕДНЕЕ В ENUM! 
 } event_id;
-
