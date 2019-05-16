@@ -308,55 +308,19 @@
 	"buffers":
 	[
 		{
-			"file": "src/neos/events.c",
+			"file": "src/neos/include/neosConfig.h",
 			"settings":
 			{
-				"buffer_size": 4932,
+				"buffer_size": 1072,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/neos/include/tasks.h",
+			"file": "src/neos/include/scheulder.h",
 			"settings":
 			{
-				"buffer_size": 864,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/neos/tasks.c",
-			"settings":
-			{
-				"buffer_size": 3042,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/neos/include/portable.h",
-			"settings":
-			{
-				"buffer_size": 1005,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "docs/kernel.md",
-			"settings":
-			{
-				"buffer_size": 7508,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "docs/network timer.md",
-			"settings":
-			{
-				"buffer_size": 950,
+				"buffer_size": 578,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -365,16 +329,25 @@
 			"file": "src/neos/scheulder.c",
 			"settings":
 			{
-				"buffer_size": 694,
+				"buffer_size": 696,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/neos/include/events.h",
+			"file": "docs/kernel.md",
 			"settings":
 			{
-				"buffer_size": 852,
+				"buffer_size": 3677,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/neos/include/tasks.h",
+			"settings":
+			{
+				"buffer_size": 838,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -520,29 +493,37 @@
 		"/home/saurex83/Projects/neos/docs/xmindmap",
 		"/home/saurex83/Projects/neos/src",
 		"/home/saurex83/Projects/neos/src/kernel",
+		"/home/saurex83/Projects/neos/src/kernel/platform",
 		"/home/saurex83/Projects/neos/src/neos",
 		"/home/saurex83/Projects/neos/src/neos/include",
 		"/home/saurex83/Projects/neos/src/neos/portable",
+		"/home/saurex83/Projects/neos/src/neos/portable/stm32l151",
 		"/home/saurex83/Projects/neos/stdperiph"
 	],
 	"file_history":
 	[
+		"/home/saurex83/Projects/neos/src/neos/include/irq.h",
+		"/home/saurex83/Projects/neos/src/neos/irq.c",
+		"/home/saurex83/Projects/neos/src/neos/makefile",
+		"/home/saurex83/Projects/neos/src/neos/tasks.c",
+		"/home/saurex83/Projects/neos/src/neos/events.c",
+		"/home/saurex83/Projects/neos/src/neos/include/portable.h",
+		"/home/saurex83/Projects/neos/src/neos/include/tasks.h",
+		"/home/saurex83/Projects/neos/src/neos/scheulder.c",
+		"/home/saurex83/Projects/neos/src/neos/include/events.h",
+		"/home/saurex83/Projects/neos/docs/kernel.md",
+		"/home/saurex83/Projects/neos/docs/network timer.md",
 		"/home/saurex83/Projects/neos/docs/systick timer.md",
 		"/home/saurex83/Projects/neos/docs/power models.md",
 		"/home/saurex83/Projects/neos/docs/wireless stack impementation.md",
 		"/home/saurex83/Projects/neos/src/neos/kernel_panic.c",
 		"/home/saurex83/Projects/neos/src/neos/include/neos.h",
-		"/home/saurex83/Projects/neos/src/neos/include/portable.h",
 		"/home/saurex83/Projects/neos/src/neos/portable/smt32l151/neos_stm32l151.c",
 		"/home/saurex83/Projects/neos/src/neos/include/scheulder.h",
 		"/home/saurex83/Projects/neos/src/neos/include/debug.h",
 		"/home/saurex83/Projects/neos/src/neos/include/neosConfig.h",
 		"/home/saurex83/Projects/neos/src/neos/include/kernel_printf.h",
 		"/home/saurex83/Projects/neos/src/neos/kernel_printf.c",
-		"/home/saurex83/Projects/neos/src/neos/tasks.c",
-		"/home/saurex83/Projects/neos/src/neos/events.c",
-		"/home/saurex83/Projects/neos/src/neos/include/tasks.h",
-		"/home/saurex83/Projects/neos/src/neos/include/events.h",
 		"/home/saurex83/Projects/neos/inc/kernel/kconf.h",
 		"/home/saurex83/Projects/neos/inc/kernel/kernel.h",
 		"/home/saurex83/Projects/neos/src/kernel/scheulder.c",
@@ -551,7 +532,6 @@
 		"/home/saurex83/Projects/neos/src/kernel/core_unit_tests.c",
 		"/home/saurex83/Projects/neos/src/kernel/event_handlers.c",
 		"/home/saurex83/Projects/neos/makefile",
-		"/home/saurex83/Projects/neos/docs/kernel.md",
 		"/home/saurex83/Projects/neos/src/kernel/main.c",
 		"/home/saurex83/Projects/neos/docs/hal.md",
 		"/home/saurex83/Projects/neos/src/hal/hal.c",
@@ -649,16 +629,11 @@
 		"/home/saurex/Документы/Neos/inc/hal/hal_configuration.h",
 		"/home/saurex/Документы/Neos/src/hal/makefile",
 		"/home/saurex/Документы/Neos/src/kernel/core_systick.c",
-		"/home/saurex/Документы/Neos/src/kernel/core_system.c",
-		"/home/saurex/Документы/Neos/inc/hal/hal.c",
-		"/home/saurex/Документы/Neos/src/kernel/core_idle.c",
-		"/home/saurex/Документы/Neos/src/kernel/core_modules.c",
-		"/home/saurex/Документы/Neos/src/kernel/core_listeners.c",
-		"/run/user/1000/gvfs/smb-share"
+		"/home/saurex/Документы/Neos/src/kernel/core_system.c"
 	],
 	"find":
 	{
-		"height": 55.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -722,52 +697,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/neos/events.c",
+					"file": "src/neos/include/neosConfig.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4932,
+						"buffer_size": 1072,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/neos/include/tasks.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 864,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								1000,
+								1000
 							]
 						],
 						"settings":
@@ -775,33 +722,32 @@
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 162.0,
+						"translation.y": 191.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/neos/tasks.c",
+					"buffer": 1,
+					"file": "src/neos/include/scheulder.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3042,
+						"buffer_size": 578,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								578,
+								578
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -811,25 +757,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/neos/include/portable.h",
+					"buffer": 2,
+					"file": "src/neos/scheulder.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1005,
+						"buffer_size": 696,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								492,
+								492
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/C++/C.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -839,20 +785,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "docs/kernel.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7508,
+						"buffer_size": 3677,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3675,
-								3675
+								3057,
+								3057
 							]
 						],
 						"settings":
@@ -862,83 +808,33 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2153.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "docs/network timer.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 950,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								950,
-								950
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1346.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 6,
-					"file": "src/neos/scheulder.c",
+					"buffer": 4,
+					"file": "src/neos/include/tasks.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 694,
+						"buffer_size": 838,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								633,
-								633
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/neos/include/events.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 852,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								183,
+								183
 							]
 						],
 						"settings":
@@ -949,7 +845,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -972,11 +868,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.734704110366,
 			1.0
 		],
 		"rows":

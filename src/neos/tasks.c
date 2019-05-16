@@ -28,12 +28,6 @@ typedef struct queryMinPriority
 
 typedef struct 
 {
-	task_t task[TASK_Q_SIZE_MidP];
-	ptr_t ptr;
-} queryMidPriority;
-
-typedef struct 
-{
 	task_t task[TASK_Q_SIZE_MaxP];
 	ptr_t ptr;
 } queryMaxPriority;
@@ -41,7 +35,6 @@ typedef struct
 static struct 
 {
 	queryMinPriority queryMinPriority;
-	queryMidPriority queryMidPriority;
 	queryMaxPriority queryMaxPriority;
 } taskQuery;
 
@@ -57,19 +50,6 @@ static inline void pushMin(task_t *task)
 		qptr->ptr++;
 	}
 	kernel_panic( __FILE__, __LINE__, "Query min priority full");
-}
-
-static inline void pushMid(task_t *task)
-{
-	queryMidPriority *qptr;
-	qptr = &taskQuery.queryMidPriority;
-
-	if (qptr->ptr < TASK_Q_SIZE_MidP)
-	{
-		qptr->task[qptr->ptr] = *task;
-		qptr->ptr++;
-	}
-	kernel_panic( __FILE__, __LINE__, "Query mid priority full");
 }
 
 static inline void pushMax(task_t *task)
@@ -98,19 +78,6 @@ static inline int popMin(task_t *task)
 	return 0;
 }
 
-static inline int popMid(task_t *task)
-{
-	queryMidPriority *qptr;
-	qptr = &taskQuery.queryMidPriority;
-
-	if (qptr->ptr == 0)
-		return -1;
-
-	qptr->ptr--;
-	*task = qptr->task[qptr->ptr];
-	return 0;
-}
-
 static inline int popMax(task_t *task)
 {
 	queryMaxPriority *qptr;
@@ -128,8 +95,6 @@ void xTaskWrite(task_t *task)
 {
 	if (task->taskP == MIN_PRIORITY)
 		pushMin(task);
-	else if (task->taskP == MID_PRIORITY)
-		pushMid(task);
 	else if (task->taskP == MAX_PRIORITY)
 		pushMax(task);
 	else
@@ -140,8 +105,6 @@ void xTaskWrite(task_t *task)
 int xTaskRead(task_t *task)
 {
 	if (popMax(task) == 0)
-		return 0;
-	else if (popMid(task) == 0)
 		return 0;
 	else if (popMin(task) == 0)
 		return 0;
