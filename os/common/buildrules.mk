@@ -1,22 +1,35 @@
-# Имя проекта
+# Скрипт линкера настраивается в port
 #-------------------------------------------------------------------------------
-TARGET  = template
+LDSCR_PATH := 
+LDSCRIPT   := 
 
-# Дефайны
+# Исходный код для сборки HAL 
 #-------------------------------------------------------------------------------
-DEFINES += USE_STDPERIPH_DRIVER
-DEFINES += STM32L1XX_MD
-DEFINES += STM32L151xB
+HAL_SRC:=
+HAL_INC:=
 
-# Включение персональных настроек файлов 
+# Исходный код для сборки PORT 
 #-------------------------------------------------------------------------------
-MAKEFILE_INC += src/neos/makefile
-MAKEFILE_INC += src/neos/portable/stm32l151/makefile
-MAKEFILE_INC += stdperiph/src/makefile
-MAKEFILE_INC += cmsis/makefile
-MAKEFILE_INC += 
+PORT_SRC:=
+PORT_INC:=
 
-include $(MAKEFILE_INC)
+# Исходный код для сборки ОС 
+#-------------------------------------------------------------------------------
+CORE_SRC:=
+CORE_INC:=
+
+# Включение файлов сборки проекта 
+#-------------------------------------------------------------------------------
+include $(NEOS_DIR)/os/neos.mk
+
+# Список объектных файлов
+#-------------------------------------------------------------------------------
+
+OBJS += ${PORT_SRC} 	
+OBJS += ${CORE_SRC} 
+OBJS += ${APP_SRC} 
+OBJS := ${OBJS:.c=.o}
+OBJS := ${OBJS:.s=.o}
 
 # Инструменты
 #-------------------------------------------------------------------------------
@@ -26,38 +39,15 @@ LD = arm-none-eabi-gcc
 CP = arm-none-eabi-objcopy
 SZ = arm-none-eabi-size
 RM = rm
+  
+EXE_DIR = $(NEOS_DIR)/bin
 
-# Пути к CMSIS, StdPeriph Lib
+# Пути поиска заголовочных файлов
 #-------------------------------------------------------------------------------
-CMSIS_PATH         = cmsis
-STDPERIPH_INC_PATH = stdperiph/inc
-STDPERIPH_SRC_PATH = stdperiph/src
-
-# startup файл
-#-------------------------------------------------------------------------------
-STARTUP = startup/startup_stm32l1xx_md.s
-
-# Пути поиска исходных файлов
-#-------------------------------------------------------------------------------
-SOURCEDIRS := src
-SOURCEDIRS += src/neos
-SOURCEDIRS += src/neos/include
-SOURCEDIRS += src/neos/portable/stm32l151
-SOURCEDIRS += src/hal
-SOURCEDIRS += $(STDPERIPH_SRC_PATH)
-SOURCEDIRS += $(CMSIS_PATH)
-
-# 
-OBJ_DIR = obj 
-EXE_DIR = bin
-
-# Пути поиска хидеров
-#-------------------------------------------------------------------------------
-INCLUDES += inc
-INCLUDES += src/neos/include
-INCLUDES += $(SOURCEDIRS) 
-INCLUDES += $(CMSIS_PATH)
-INCLUDES += $(STDPERIPH_INC_PATH)
+INCLUDES += $(PORT_INC)
+INCLUDES += $(HAL_INC)
+INCLUDES += $(CORE_INC)
+INCLUDES += $(APP_INC)
 
 # Библиотеки
 #-------------------------------------------------------------------------------
@@ -82,11 +72,6 @@ CFLAGS += $(DEFAULT_OPTIMIZATION)
 CFLAGS += $(addprefix -I, $(INCLUDES))
 CFLAGS += $(addprefix -D, $(DEFINES))
 
-# Скрипт линкера
-#-------------------------------------------------------------------------------
-LDSCR_PATH = ld-scripts
-LDSCRIPT   = stm32_flash.ld
-
 # Настройки линкера
 #-------------------------------------------------------------------------------
 LDFLAGS += -nostartfiles
@@ -105,25 +90,15 @@ LDFLAGS += $(LIBS)
 AFLAGS += -alh
 AFLAGS += -mapcs-32
 
-# Список объектных файлов
-#-------------------------------------------------------------------------------
-OBJS += $(patsubst %.c, %.o, $(wildcard  $(addsuffix /*.c, $(SOURCEDIRS))))
-#OBJS += $(addprefix $(STDPERIPH_SRC_PATH)/, $(addsuffix .o, $(STDPERIPH_SRC_PATH)))
-OBJS += $(patsubst %.s, %.o, $(STARTUP))
-
-
 # Пути поиска make
 #-------------------------------------------------------------------------------
-VPATH := $(SOURCEDIRS)
+#VPATH := $(SOURCEDIRS)
 
 # Список файлов к удалению командой "make clean"
 #-------------------------------------------------------------------------------
-TOREMOVE += *.elf *.hex
-TOREMOVE += $(addsuffix /*.o, $(SOURCEDIRS))
-TOREMOVE += $(addsuffix /*.d, $(SOURCEDIRS))
-TOREMOVE += $(STDPERIPH_SRC_PATH)/*.o
-TOREMOVE += $(patsubst %.s, %.o, $(STARTUP))
-TOREMOVE += $(TARGET)
+TOREMOVE += $(EXE_DIR)/$(TARGET).elf 
+TOREMOVE += $(EXE_DIR)/$(TARGET).hex
+TOREMOVE += $(OBJS)
 
 # Собрать все
 #-------------------------------------------------------------------------------
@@ -138,7 +113,7 @@ clean:
 #-------------------------------------------------------------------------------
 $(TARGET).hex: $(TARGET).elf
 	@$(CP) -Oihex $(EXE_DIR)/$(TARGET).elf $(EXE_DIR)/$(TARGET).hex
-        
+
 # Показываем размер
 #-------------------------------------------------------------------------------
 size:
@@ -155,13 +130,13 @@ OPT = $(notdir $@)
 # Компиляция
 #------------------------------------------------------------------------------- 
 %.o: %.c
-	@echo "\e[1;34mBuilding $<  user cflags:  $($(notdir $@))\e[0m"
+	@echo "$<"
 	@$(CC) $(CFLAGS) $($(notdir $@)) -c $< -o $@
- 
+
 %.o: %.s
 	@echo "\e[1;34mBuilding $<\e[0m"
 	@echo "OPTIMIZATION: $(AFLAGS)"
-	@$(AS) $(AFLAGS) -c $< -o $@ > /dev/null
+	@$(AS) $(AFLAGS) $($(notdir $@)) -c $< -o $@ > /dev/null
 
 # Сгенерированные gcc зависимости
 #-------------------------------------------------------------------------------
