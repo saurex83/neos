@@ -10,9 +10,17 @@ TMP_DIR := $(NEOS_DIR)/os/hal/ports/STM32L151
 LDSCR_PATH = $(TMP_DIR)/ld-scripts
 LDSCRIPT   = stm32_flash.ld
 
+# Заголовочные файлы
 PORT_INC +=$(TMP_DIR)/cmsis
 PORT_INC +=$(TMP_DIR)/stdperiph
+PORT_INC +=$(TMP_DIR)/LLD
 
+# Исходный код драйверов
+PORT_SRC += $(TMP_DIR)/LLD/lld_gpio.c
+PORT_SRC += $(TMP_DIR)/LLD/lld_spi.c
+PORT_SRC += $(TMP_DIR)/LLD/lld_usart.c
+
+# Исходный код библиотеки STM
 PORT_SRC += $(TMP_DIR)/startup/startup_stm32l1xx_md.s
 PORT_SRC += $(TMP_DIR)/cmsis/system_stm32l1xx.c
 PORT_SRC += $(TMP_DIR)/stdperiph/misc.c
