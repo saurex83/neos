@@ -22,6 +22,22 @@
 				],
 			}
 		}
-	}
+	},
 
+    "build_systems":
+    [
+        {
+            "name": "neocore node build",
+            "cmd": ["make","-C", "Applications/node"],
+            
+            "variants":
+			[
+    			{
+        			"name": "Clean",
+        			"cmd": ["make","clean","-C", "Applications/node"]
+    			}
+    		]
+        }
+    ]
 }
+
