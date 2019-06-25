@@ -26,8 +26,7 @@
 
 #pragma once
 
-#include "neos.h" 
-#include "tasks.h"
+#include "neosConfig.h"
 
 typedef uint16_t event_t;
 typedef void (*subscriber_t)(void);

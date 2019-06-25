@@ -1,6 +1,7 @@
-#include "co_events.h"
+#include "neos.h"
 
 int main ()
 {
+	coreStartSchedule();
 	return 0;
 }

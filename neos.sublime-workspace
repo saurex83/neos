@@ -4,10 +4,6 @@
 		"selected_items":
 		[
 			[
-				"ev",
-				"event_t"
-			],
-			[
 				"ta",
 				"task"
 			],
@@ -38,6 +34,10 @@
 			[
 				"st",
 				"struct\tstruct"
+			],
+			[
+				"ev",
+				"event"
 			],
 			[
 				"LD",
@@ -308,34 +308,41 @@
 	"buffers":
 	[
 		{
-			"file": "Applications/node/config/event_config.c",
+			"file": "Applications/node/main.c",
 			"settings":
 			{
-				"buffer_size": 985,
+				"buffer_size": 67,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Applications/node/config/events_defs.h",
+			"file": "os/core/neos.h",
 			"settings":
 			{
-				"buffer_size": 659,
+				"buffer_size": 969,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Applications/node/makefile",
 			"settings":
 			{
-				"buffer_size": 495,
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Applications/node/drivers/idle_mode.c",
+			"settings":
+			{
+				"buffer_size": 104,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Applications/node/config/config.mk",
+			"file": "Applications/node/drivers/drivers.mk",
 			"settings":
 			{
 				"buffer_size": 51,
@@ -344,34 +351,16 @@
 			}
 		},
 		{
-			"file": "os/core/co_events.c",
+			"file": "Applications/node/makefile",
 			"settings":
 			{
-				"buffer_size": 1569,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Applications/node/main.c",
-			"settings":
-			{
-				"buffer_size": 50,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "os/core/co_events.h",
-			"settings":
-			{
-				"buffer_size": 2734,
+				"buffer_size": 522,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "Packages/Makefile/Make.sublime-build",
+	"build_system": "neocore node build",
 	"build_system_choices":
 	[
 		[
@@ -404,6 +393,22 @@
 			[
 				"Packages/Python/Python.sublime-build",
 				"Syntax Check"
+			]
+		],
+		[
+			[
+				[
+					"neocore node build",
+					""
+				],
+				[
+					"neocore node build",
+					"Clean"
+				]
+			],
+			[
+				"neocore node build",
+				""
 			]
 		]
 	],
@@ -506,24 +511,54 @@
 	},
 	"expanded_folders":
 	[
-		"/home/saurex83/Projects/neos",
-		"/home/saurex83/Projects/neos/Applications",
-		"/home/saurex83/Projects/neos/Applications/node",
-		"/home/saurex83/Projects/neos/Applications/node/config",
-		"/home/saurex83/Projects/neos/bin",
-		"/home/saurex83/Projects/neos/os",
-		"/home/saurex83/Projects/neos/os/core"
+		"/home/saurex/Projects/neos",
+		"/home/saurex/Projects/neos/Applications",
+		"/home/saurex/Projects/neos/Applications/node",
+		"/home/saurex/Projects/neos/Applications/node/config",
+		"/home/saurex/Projects/neos/Applications/node/drivers",
+		"/home/saurex/Projects/neos/Applications/node/modules",
+		"/home/saurex/Projects/neos/os",
+		"/home/saurex/Projects/neos/os/common",
+		"/home/saurex/Projects/neos/os/core"
 	],
 	"file_history":
 	[
+		"/home/saurex/Projects/neos/os/core/co_schedule.c",
+		"/home/saurex/Projects/neos/os/core/co_events.c",
+		"/home/saurex/Projects/neos/os/core/core.mk",
+		"/home/saurex/Projects/neos/os/core/co_events.h",
+		"/home/saurex/Projects/neos/os/core/co_debug.h",
+		"/home/saurex/Projects/neos/os/core/neosConfig.h",
+		"/home/saurex/Projects/neos/os/core/neos.h",
+		"/home/saurex/Projects/neos/os/common/buildrules.mk",
+		"/home/saurex/Projects/neos/os/core/co_panic.c",
+		"/home/saurex/Projects/neos/os/core/core_panic.c",
+		"/home/saurex/Projects/neos/Applications/node/config/event_config.c",
+		"/home/saurex/Projects/neos/Applications/node/main.c",
+		"/home/saurex/Projects/neos/neos.sublime-project",
+		"/home/saurex/Projects/neos/os/core/events.h",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld_usart.h",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld_usart.c",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld_spi.h",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld_spi.c",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/stm32l151.mk",
+		"/home/saurex/Projects/neos/docs/kernel.md",
+		"/home/saurex/Projects/neos/src/neos/include/tasks.h",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/lld_irq.c",
+		"/home/saurex/Projects/neos/os/hal/AHD/ahd.h",
+		"/home/saurex/Projects/neos/os/hal/AHD/ahd.c",
+		"/home/saurex/Projects/neos/os/hal/AHD/ahd_gpio.c",
+		"/home/saurex/Projects/neos/os/hal/AHD/ahd_gpio.h",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/hal_spi_lld.c",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/hal_gpio_lld.c",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/hal_usart_lld.c",
+		"/home/saurex/Projects/neos/README.MD",
+		"/home/saurex/Projects/neos/Aplications/node/makefile",
+		"/home/saurex/Projects/neos/makefile",
+		"/home/saurex/Projects/neos/Applications/node/makefile",
+		"/home/saurex/Projects/neos/Aplications/node/main.c",
 		"/home/saurex83/Projects/neos/os/core/core.mk",
-		"/home/saurex83/Projects/neos/Applications/node/main.c",
 		"/home/saurex83/Projects/neos/os/common/buildrules.mk",
-		"/home/saurex83/Projects/neos/os/core/co_events.h",
-		"/home/saurex83/Projects/neos/Applications/node/makefile",
-		"/home/saurex83/Projects/neos/Aplications/node/main.c",
-		"/home/saurex83/Projects/neos/src/neos/include/tasks.h",
-		"/home/saurex83/Projects/neos/Aplications/node/makefile",
 		"/home/saurex83/Projects/neos/os/neos.mk",
 		"/home/saurex83/Projects/neos/os/hal/hal.mk",
 		"/home/saurex83/Projects/neos/os/core/main.c",
@@ -539,6 +574,7 @@
 		"/home/saurex83/Projects/neos/src/neos/tasks.c",
 		"/home/saurex83/Projects/neos/src/neos/events.c",
 		"/home/saurex83/Projects/neos/src/neos/include/portable.h",
+		"/home/saurex83/Projects/neos/src/neos/include/tasks.h",
 		"/home/saurex83/Projects/neos/src/neos/include/events.h",
 		"/home/saurex83/Projects/neos/docs/network timer.md",
 		"/home/saurex83/Projects/neos/docs/systick timer.md",
@@ -614,40 +650,11 @@
 		"/home/saurex/Документы/Current_mitter_hw/src/hal/makefile",
 		"/home/saurex/Документы/Current_mitter_hw/src/hal/hal_uart_dbg.c",
 		"/home/saurex/Документы/Current_mitter_hw/inc/hal/hal.h",
-		"/home/saurex/Документы/Neos/docs/kernel.md",
-		"/home/saurex/Документы/Current_mitter_hw/inc/hal/hal_uart_dbg.h",
-		"/home/saurex/Документы/Current_mitter_hw/inc/hal/hal_configuration.h",
-		"/home/saurex/Документы/Neos/inc/kernel/kernel_panic.h",
-		"/home/saurex/Документы/Neos/inc/kernel/kcodes.h",
-		"/home/saurex/Документы/Neos/inc/kernel/kernel.h",
-		"/home/saurex/Документы/Neos/src/kernel/core_unit_tests.c",
-		"/home/saurex/Документы/Neos/src/hal/hal_lse.c",
-		"/home/saurex/Документы/Neos/makefile",
-		"/home/saurex/Документы/Neos/src/kernel/makefile",
-		"/home/saurex/Документы/Neos/inc/kernel/kernel_configuration.h",
-		"/home/saurex/Документы/Neos/src/kernel/main.c",
-		"/home/saurex/Документы/Neos/inc/kernel/core_unit_tests.h",
-		"/home/saurex/Документы/Neos/src/kernel/core_event_manager.c",
-		"/home/saurex/Документы/Neos/src/kernel/core_event_handlers.c",
-		"/home/saurex/Документы/Neos/src/kernel/core_task_manager.c",
-		"/home/saurex/Документы/Neos/src/hal/hal_idle.c",
-		"/home/saurex/Документы/Neos/src/kernel/kernel_panic.c",
-		"/home/saurex/.vmware/preferences",
-		"/run/user/1000/gvfs/smb-share:server=192.168.17.168,share=storage/Developments/Neocore/Cases/изменения_узла.md",
-		"/run/user/1000/gvfs/smb-share:server=192.168.17.168,share=storage/Admin/common_ssh_access/access_to_server_via_ssh.md",
-		"/etc/apt/sources.list",
-		"/home/saurex/.gdbinit",
-		"/home/saurex/Документы/Neos/src/app/sys",
-		"/home/saurex/Документы/Neos/src/hal/hal.c",
-		"/home/saurex/Документы/Neos/inc/kernel/core_event_manager.h",
-		"/home/saurex/Документы/Neos/src/kernel/core_scheulder.c",
-		"/home/saurex/Документы/Neos/src/hal/hal_sysclock.c",
-		"/home/saurex/Документы/Neos/inc/kernel/kevents.h",
-		"/home/saurex/Документы/Neos/inc/kernel/core_event_handlers.h"
+		"/home/saurex/Документы/Neos/docs/kernel.md"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -716,57 +723,97 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Applications/node/config/event_config.c",
+					"file": "Applications/node/main.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 985,
+						"buffer_size": 67,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								985,
-								985
+								67,
+								67
 							]
 						],
 						"settings":
 						{
+							"SL.100.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 162.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
 				{
 					"buffer": 1,
-					"file": "Applications/node/config/events_defs.h",
+					"file": "os/core/neos.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 659,
+						"buffer_size": 969,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								115
+								868,
+								868
 							]
 						],
 						"settings":
 						{
+							"SL.108.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/saurex/Projects/neos/Applications/node/modules",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -776,36 +823,39 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Applications/node/makefile",
+					"buffer": 3,
+					"file": "Applications/node/drivers/idle_mode.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 495,
+						"buffer_size": 104,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								333,
-								333
+								104,
+								104
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
+							"SL.114.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Applications/node/config/config.mk",
+					"buffer": 4,
+					"file": "Applications/node/drivers/drivers.mk",
 					"semi_transient": false,
 					"settings":
 					{
@@ -816,71 +866,41 @@
 						"selection":
 						[
 							[
-								45,
-								45
+								20,
+								20
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
 							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "os/core/co_events.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1569,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1179,
-								1179
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "Applications/node/main.c",
+					"file": "Applications/node/makefile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 50,
+						"buffer_size": 522,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								37,
-								37
+								277,
+								277
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C.sublime-syntax"
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -888,46 +908,13 @@
 					},
 					"stack_index": 2,
 					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "os/core/co_events.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2734,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1745,
-								1745
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 38.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -953,7 +940,7 @@
 		"cols":
 		[
 			0.0,
-			0.900354360478,
+			0.518343162844,
 			1.0
 		],
 		"rows":
@@ -963,9 +950,17 @@
 		]
 	},
 	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 276.0
+	},
 	"output.exec":
 	{
-		"height": 132.0
+		"height": 263.0
 	},
 	"output.find_results":
 	{
@@ -975,11 +970,11 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "Packages/Makefile/Make.sublime-build",
+	"pinned_build_system": "neocore node build",
 	"project": "neos.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1017,7 +1012,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 501.0,
+	"side_bar_width": 444.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -11,6 +11,7 @@ APP_SRC += main.c
 APP_INC += 
 
 include config/config.mk
+include drivers/drivers.mk
 
 # Включение файлов сборки проекта 
 #-------------------------------------------------------------------------------

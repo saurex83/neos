@@ -9,9 +9,35 @@
  mail:        pvp@dcconsult.ru 
  ******************************************************************************/
 #include "neos.h"
-#include "tasks.h"
-#include "events.h"
+#include "co_events.h"
+
+void co_idle(void) __attribute__ ((weak));
 
 // Запускаем планировщик задач
-void xScheulderStart(void);
+void coreStartSchedule(void)
+{
+	event_t event;
+	subscriber_t *sub_list;
 
+	while (true)
+	{
+		if (!coreGetEvent(&event))
+			{
+				co_idle();
+				continue;
+			}
+		
+		sub_list = coreGetSubscribers(event);
+
+		while (*sub_list != SUB_CHAIN_END)
+		{
+			(*sub_list)();
+			sub_list++;
+		}
+	}
+}
+
+void co_idle(void) 
+{
+
+}

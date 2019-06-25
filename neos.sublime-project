@@ -28,13 +28,13 @@
     [
         {
             "name": "neocore node build",
-            "cmd": ["make","-C", "Applications/node"],
+            "cmd": ["make"],
             
             "variants":
 			[
     			{
         			"name": "Clean",
-        			"cmd": ["make","clean","-C", "Applications/node"]
+        			"cmd": ["make","clean"]
     			}
     		]
         }

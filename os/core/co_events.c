@@ -9,10 +9,7 @@
  Компания:    ООО "ДиСиСи"                                                 
  mail:        pvp@dcconsult.ru 
  ******************************************************************************/
-#include "co_events.h"
-
-// Максимальное число событий в системе
-#define MAX_CORE_EVENTS 16
+#include "neos.h"
 
 // Пользователь сам должен заботится о создании этого массива
 extern subscriber_t *event_chain_list[];
@@ -26,18 +23,16 @@ static struct
 	ptr_t ptr;
 } events_query;
 
-
-
-void coreFireEvent(event_t event);
-subscriber_t* coreGetSubscribers(event_t event);
-int coreGetEvent(event_t *event);
-
-
 // Возвращает 0 если нет активных событий или 1
 // Номер события размещает в event
 int coreGetEvent(event_t *event)
 {
-	
+	if 	(!events_query.ptr)
+		return 0;
+
+	events_query.ptr--;
+	*event = events_query.firedEvents[events_query.ptr];
+	return 1;
 }
 
 // Возвращает указатель на список подписчиков
@@ -53,7 +48,7 @@ void coreFireEvent(event_t event)
 
 	if (ptr >= MAX_CORE_EVENTS)
 	{
-		// TODO Системный пиздец
+		MALFUNCTION("Event query exceeded");
 	}
 	events_query.firedEvents[ptr] = event;
 	events_query.ptr ++;
