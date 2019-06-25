@@ -32,14 +32,9 @@
 typedef uint16_t event_t;
 typedef void (*subscriber_t)(void);
 
-// Активируем событие. Возможно несколько одинаковых событий
+
 void coreFireEvent(event_t event);
-
-// Возвращает указатель на список подписчиков
 subscriber_t* coreGetSubscribers(event_t event);
-
-// Возвращает 0 если нет активных событий или 1
-// Номер события размещает в event
 int coreGetEvent(event_t *event);
 
 // Конец цепочки подписчиков
@@ -61,7 +56,7 @@ int coreGetEvent(event_t *event);
 // Список указателей на цепочки подписчиков
 // Список может существовать только один
 #define EVENT_TO_SUBSCRIBERS_CHAIN_MAP_BEGIN	\
-subscriber_t *event_chain_list[] ={	 
+subscriber_t* event_chain_list[] ={	 
 
 #define EVENT_TO_SUBSCRIBERS_CHAIN_MAP_END		\
 	};

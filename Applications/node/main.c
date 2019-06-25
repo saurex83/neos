@@ -1,22 +1,4 @@
-#include "events.h"
-
-void test(void)
-{
-
-}
-
-EVENT_SUBSCRIBERS_CHAIN_BEGIN(Oleg)
-	SUBSCRIBER(test),
-	SUBSCRIBER(test),
-	SUBSCRIBER(test)
-EVENT_SUBSCRIBERS_CHAIN_END
-
-EVENT_TO_SUBSCRIBERS_CHAIN_MAP_BEGIN
-	REG_SUB_CHAIN(0,Oleg),
-	REG_SUB_CHAIN(1,Oleg),
-	REG_SUB_CHAIN(2,Oleg),
-EVENT_TO_SUBSCRIBERS_CHAIN_MAP_END
-
+#include "co_events.h"
 
 int main ()
 {
