@@ -1,4 +1,4 @@
-HAL_INC += $(NEOS_DIR)/os/hal/include
+HAL_INC += $(NEOS_DIR)/os/hal/HLD
 
 
 # Включение файлов сборки проекта 
