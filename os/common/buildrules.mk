@@ -28,6 +28,7 @@ include $(NEOS_DIR)/os/neos.mk
 OBJS += ${PORT_SRC} 	
 OBJS += ${CORE_SRC} 
 OBJS += ${APP_SRC} 
+OBJS += ${HAL_SRC} 
 OBJS := ${OBJS:.c=.o}
 OBJS := ${OBJS:.s=.o}
 

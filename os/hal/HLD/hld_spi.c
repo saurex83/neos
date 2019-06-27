@@ -9,26 +9,47 @@
  Компания:    ООО "ДиСиСи"                                                 
  mail:        pvp@dcconsult.ru 
  ******************************************************************************/
-#pragma once
-
 
 /*******************************************************************************
 Экспортируемые функции
 *******************************************************************************/
+#include <stdint.h>
+
+extern void lld_spi1_read(uint8_t *buf, uint8_t len);
+extern void lld_spi1_write(uint8_t *buf, uint8_t len);
+extern void spi_lld_init();
+
+void spiInit()
+{
+	spi_lld_init();	
+} 
+
+void spi1Read(uint8_t *buf, uint8_t len)
+{
+	lld_spi1_read(buf, len); 
+}
+
+void spi1Write(uint8_t *buf, uint8_t len)
+{
+	lld_spi1_write(buf, len);
+}
+
+/*
 void spiInit(void);
 void spiObjectInit(SPIDriver *spip);
 
 void spiStart(SPIDriver *spip, const SPIConfig *config);
 void spiStop(SPIDriver *spip);
 
-// выбор чипселекта
+
 void spiSelect(SPIDriver *spip);
 void spiUnselect(SPIDriver *spip);
 
-// асинхронные функции. в конце передачи вызывается callback
+
 void spiStartSend(SPIDriver *spip, size_t n, const void *txbuf);
 void spiStartReceive(SPIDriver *spip, size_t n, void *rxbuf);
 
-// Синхронные функции
+
 void spiSend(SPIDriver *spip, size_t n, const void *txbuf);
 void spiReceive(SPIDriver *spip, size_t n, void *rxbuf);
+*/
