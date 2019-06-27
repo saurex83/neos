@@ -16,6 +16,7 @@
 
 #define IOPORTA		GPIOA
 #define IOPORTB		GPIOB
+#define IOPORTH		GPIOH
 
 typedef uint32_t 		ioportmask_t;
 typedef uint32_t 		iomode_t;

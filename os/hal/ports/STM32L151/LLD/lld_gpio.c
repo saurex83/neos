@@ -77,6 +77,5 @@ void _pal_lld_init()
 {
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOD, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOH, ENABLE);
 }
