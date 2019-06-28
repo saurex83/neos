@@ -50,5 +50,3 @@ void _pal_lld_setgroupmode(ioportid_t port,
 #define pal_lld_init() _pal_lld_init()
 
 
-
-

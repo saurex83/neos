@@ -311,43 +311,16 @@
 			"file": "Applications/node/main.c",
 			"settings":
 			{
-				"buffer_size": 267,
+				"buffer_size": 592,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "os/hal/HLD/hld_usart.h",
+			"file": "os/hal/HLD/hld_gpio.h",
 			"settings":
 			{
-				"buffer_size": 1139,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "os/hal/HLD/hld_spi.c",
-			"settings":
-			{
-				"buffer_size": 1410,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "os/hal/hal.mk",
-			"settings":
-			{
-				"buffer_size": 207,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "os/hal/HLD/hld.h",
-			"settings":
-			{
-				"buffer_size": 820,
+				"buffer_size": 3369,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -356,7 +329,7 @@
 			"file": "os/hal/ports/STM32L151/LLD/lld_gpio.h",
 			"settings":
 			{
-				"buffer_size": 2163,
+				"buffer_size": 2184,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -365,18 +338,87 @@
 			"file": "os/hal/ports/STM32L151/LLD/lld_gpio.c",
 			"settings":
 			{
-				"buffer_size": 2158,
+				"buffer_size": 2105,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "os/hal/ports/STM32L151/cmsis/stm32l1xx.h",
+			"file": "os/hal/ports/STM32L151/stdperiph/stm32l1xx_gpio.h",
 			"settings":
 			{
-				"buffer_size": 498476,
-				"encoding": "Western (Windows 1252)",
+				"buffer_size": 15727,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "os/hal/ports/STM32L151/stdperiph/stm32l1xx_gpio.c",
+			"settings":
+			{
+				"buffer_size": 20207,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "os/hal/HLD/hld_spi.c",
+			"settings":
+			{
+				"buffer_size": 1659,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "os/hal/ports/STM32L151/LLD/lld_spi.c",
+			"settings":
+			{
+				"buffer_size": 3017,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Applications/node/makefile",
+			"settings":
+			{
+				"buffer_size": 751,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "os/hal/HLD/hld.c",
+			"settings":
+			{
+				"buffer_size": 84,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "os/hal/HLD/hld.mk",
+			"settings":
+			{
+				"buffer_size": 151,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "os/hal/HLD/hld_usart.h",
+			"settings":
+			{
+				"buffer_size": 2090,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "os/hal/HLD/hld_spi.h",
+			"settings":
+			{
+				"buffer_size": 903,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -543,12 +585,9 @@
 		"/home/saurex/Projects/neos",
 		"/home/saurex/Projects/neos/Applications",
 		"/home/saurex/Projects/neos/Applications/node",
-		"/home/saurex/Projects/neos/Applications/node/config",
-		"/home/saurex/Projects/neos/Applications/node/drivers",
 		"/home/saurex/Projects/neos/Applications/node/modules",
 		"/home/saurex/Projects/neos/os",
 		"/home/saurex/Projects/neos/os/common",
-		"/home/saurex/Projects/neos/os/core",
 		"/home/saurex/Projects/neos/os/hal",
 		"/home/saurex/Projects/neos/os/hal/HLD",
 		"/home/saurex/Projects/neos/os/hal/ports",
@@ -558,14 +597,24 @@
 	"file_history":
 	[
 		"/home/saurex/Projects/neos/os/hal/HLD/hld_gpio.h",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/lld_gpio.c",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld_usart.h",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld_usart.c",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/stm32l151.mk",
+		"/home/saurex/Projects/neos/os/common/buildrules.mk",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld.h",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/lld_usart.c",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/cmsis/stm32l1xx.h",
+		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/lld_gpio.h",
+		"/home/saurex/Projects/neos/os/hal/hal.mk",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld_spi.c",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld.mk",
 		"/home/saurex/Projects/neos/Applications/node/makefile",
+		"/home/saurex/Projects/neos/os/hal/HLD/hld.c",
 		"/home/saurex/Projects/neos/Applications/node/drivers/drivers.mk",
 		"/home/saurex/Projects/neos/Applications/node/drivers/idle_mode.c",
 		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/lld_spi.c",
 		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/stdperiph/stm32l1xx_gpio.h",
-		"/home/saurex/Projects/neos/os/hal/HLD/hld_spi.c",
-		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/lld_gpio.c",
-		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/cmsis/stm32l1xx.h",
 		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/cmsis/system_stm32l1xx.h",
 		"/home/saurex/Projects/neos/os/hal/HLD/hld_spi.h",
 		"/run/user/1000/gvfs/smb-share:server=192.168.17.168,share=storage/Admin/samba/users.md",
@@ -579,16 +628,12 @@
 		"/home/saurex/Projects/neos/os/core/co_debug.h",
 		"/home/saurex/Projects/neos/os/core/neosConfig.h",
 		"/home/saurex/Projects/neos/os/core/neos.h",
-		"/home/saurex/Projects/neos/os/common/buildrules.mk",
 		"/home/saurex/Projects/neos/os/core/co_panic.c",
 		"/home/saurex/Projects/neos/os/core/core_panic.c",
 		"/home/saurex/Projects/neos/Applications/node/config/event_config.c",
 		"/home/saurex/Projects/neos/Applications/node/main.c",
 		"/home/saurex/Projects/neos/neos.sublime-project",
 		"/home/saurex/Projects/neos/os/core/events.h",
-		"/home/saurex/Projects/neos/os/hal/HLD/hld_usart.h",
-		"/home/saurex/Projects/neos/os/hal/HLD/hld_usart.c",
-		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/stm32l151.mk",
 		"/home/saurex/Projects/neos/docs/kernel.md",
 		"/home/saurex/Projects/neos/src/neos/include/tasks.h",
 		"/home/saurex/Projects/neos/os/hal/ports/STM32L151/LLD/lld_irq.c",
@@ -678,17 +723,11 @@
 		"/home/saurex/Документы/Current_mitter_hw/inc/hal/hal_adc.h",
 		"/home/saurex/Документы/Current_mitter_hw/src/kernel/data_packet.c",
 		"/home/saurex/Документы/Current_mitter_hw/inc/kernel/data_packet.h",
-		"/home/saurex/Документы/Current_mitter_hw/src/kernel/common_conf.h",
-		"/home/saurex/Документы/Current_mitter_hw/src/hal/hal_adc.c",
-		"/home/saurex/Документы/Current_mitter_hw/src/hal/hal.c",
-		"/run/user/1000/gvfs/smb-share:server=192.168.17.168,share=storage/Developments/Neocore/dgLux/neocore_demo_prj/readme.md",
-		"/opt/dsa/dsa-server/bin/dglux_server.dart",
-		"/opt/dsa/dsa-server/bin/daemon.dart",
-		"/home/saurex/Документы/Current_mitter_hw/src/kernel/makefile"
+		"/home/saurex/Документы/Current_mitter_hw/src/kernel/common_conf.h"
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -767,7 +806,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -776,15 +815,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 267,
+						"buffer_size": 592,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								267,
-								267
+								293,
+								293
 							]
 						],
 						"settings":
@@ -798,35 +837,213 @@
 							"syntax": "Packages/C++/C.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 102.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "os/hal/HLD/hld_usart.h",
+					"file": "os/hal/HLD/hld_gpio.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1139,
+						"buffer_size": 3369,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1139,
-								1139
+								2195,
+								2195
 							]
 						],
 						"settings":
 						{
-							"SL.71.region_keys":
+							"SL.15.region_keys":
+							[
+							],
+							"SL.33.region_keys":
+							[
+							],
+							"SL.94.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 256.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "os/hal/ports/STM32L151/LLD/lld_gpio.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1879,
+								1879
+							]
+						],
+						"settings":
+						{
+							"SL.16.region_keys":
+							[
+							],
+							"SL.30.region_keys":
+							[
+							],
+							"SL.92.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 358.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "os/hal/ports/STM32L151/LLD/lld_gpio.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1026,
+								1026
+							]
+						],
+						"settings":
+						{
+							"SL.17.region_keys":
+							[
+							],
+							"SL.93.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 242.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "os/hal/ports/STM32L151/stdperiph/stm32l1xx_gpio.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15196,
+								15196
+							]
+						],
+						"settings":
+						{
+							"SL.27.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5543.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "os/hal/ports/STM32L151/stdperiph/stm32l1xx_gpio.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20207,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15651,
+								15651
+							]
+						],
+						"settings":
+						{
+							"SL.29.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7064.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "os/hal/HLD/hld_spi.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1052,
+								1052
+							]
+						],
+						"settings":
+						{
+							"SL.18.region_keys":
+							[
+							],
+							"SL.75.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -836,25 +1053,88 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "os/hal/HLD/hld_spi.c",
+					"buffer": 7,
+					"file": "os/hal/ports/STM32L151/LLD/lld_spi.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1410,
+						"buffer_size": 3017,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								846,
-								846
+								647,
+								647
 							]
 						],
 						"settings":
 						{
-							"SL.72.region_keys":
+							"SL.78.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Applications/node/makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 751,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								446,
+								446
+							]
+						],
+						"settings":
+						{
+							"SL.51.region_keys":
+							[
+							],
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "os/hal/HLD/hld.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 84,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								84,
+								84
+							]
+						],
+						"settings":
+						{
+							"SL.44.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C.sublime-syntax"
@@ -863,24 +1143,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "os/hal/hal.mk",
+					"buffer": 10,
+					"file": "os/hal/HLD/hld.mk",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 207,
+						"buffer_size": 151,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								33,
-								33
+								119,
+								119
 							]
 						],
 						"settings":
@@ -891,55 +1171,67 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 16,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
 				{
-					"buffer": 4,
-					"file": "os/hal/HLD/hld.h",
+					"buffer": 1,
+					"file": "os/hal/HLD/hld_gpio.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 820,
+						"buffer_size": 3369,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								799,
-								799
+								3364,
+								3364
 							]
 						],
 						"settings":
 						{
-							"SL.62.region_keys":
+							"SL.15.region_keys":
+							[
+							],
+							"SL.33.region_keys":
+							[
+							],
+							"SL.94.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 428.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "os/hal/ports/STM32L151/LLD/lld_gpio.h",
+					"buffer": 11,
+					"file": "os/hal/HLD/hld_usart.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2163,
+						"buffer_size": 2090,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1205,
-								1205
+								783,
+								783
 							]
 						],
 						"settings":
@@ -950,35 +1242,107 @@
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 51.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "os/hal/ports/STM32L151/LLD/lld_gpio.c",
+					"buffer": 12,
+					"file": "os/hal/HLD/hld_spi.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2158,
+						"buffer_size": 903,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								904,
-								904
+								825,
+								825
 							]
 						],
 						"settings":
 						{
-							"SL.59.region_keys":
+							"SL.35.region_keys":
 							[
 							],
-							"syntax": "Packages/C++/C.sublime-syntax"
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "os/hal/ports/STM32L151/LLD/lld_gpio.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2184,
+								2184
+							]
+						],
+						"settings":
+						{
+							"SL.16.region_keys":
+							[
+							],
+							"SL.30.region_keys":
+							[
+							],
+							"SL.92.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 154.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "os/hal/ports/STM32L151/LLD/lld_gpio.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								909,
+								909
+							]
+						],
+						"settings":
+						{
+							"SL.17.region_keys":
+							[
+							],
+							"SL.93.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 153.0,
@@ -988,46 +1352,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "os/hal/ports/STM32L151/cmsis/stm32l1xx.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 498476,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35137,
-								35137
-							]
-						],
-						"settings":
-						{
-							"SL.58.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 10194.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 8,
+					"buffer": 13,
 					"file": "os/core/neos.h",
 					"semi_transient": false,
 					"settings":
@@ -1039,8 +1364,8 @@
 						"selection":
 						[
 							[
-								346,
-								346
+								969,
+								969
 							]
 						],
 						"settings":
@@ -1051,13 +1376,16 @@
 							"SL.15.region_keys":
 							[
 							],
+							"SL.22.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
@@ -1155,7 +1483,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

@@ -61,3 +61,14 @@
 Общии макросы
 *******************************************************************************/
 #define palInit() pal_lld_init()
+
+
+/*
+	palSetPadMode(
+		IOPORTH,
+		1,
+	 	PAL_MODE_OUTPUT_PUSHPULL
+	 );
+
+	palWritePad(IOPORTH, (0), PAL_LOW);
+*/

@@ -24,12 +24,12 @@ void spiInit()
 	spi_lld_init();	
 } 
 
-void spi1Read(uint8_t *buf, uint8_t len)
+void spi1Receive_sync(uint8_t *buf, uint8_t len)
 {
 	lld_spi1_read(buf, len); 
 }
 
-void spi1Write(uint8_t *buf, uint8_t len)
+void spi1Send_sync(uint8_t *buf, uint8_t len)
 {
 	lld_spi1_write(buf, len);
 }
